@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { SocketConnect } from '../../../src'
 import Echo from './echo'
+import Toggle from './toggle'
 
 const lastMessage = (state = {}, action) => {
   if (action.type === 'newSocketMessage') {
@@ -17,10 +18,12 @@ const store = createStore(reducers)
 
 const App = () => (
   <Provider store={store}>
-    <SocketConnect url="http://localhost:3000/things">
-      <h3>The App</h3>
-      <Echo />
-    </SocketConnect>
+    <Toggle>
+      <SocketConnect url="http://localhost:3000/things">
+        <h3>The App</h3>
+        <Echo />
+      </SocketConnect>
+    </Toggle>
   </Provider>
 )
 

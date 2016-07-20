@@ -14,6 +14,7 @@ const SocketConnect = React.createClass({
   },
   componentWillUnmount: function() {
     // TODO: does this close the socket?
+    console.log('closing now?')
     this.raw.close()
   },
   getChildContext: function() {

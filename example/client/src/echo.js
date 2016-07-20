@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { onSocket } from '../../../../src'
+import { onSocket } from '../../../src'
 
 const Echo = ({ message }) => {
   return (
