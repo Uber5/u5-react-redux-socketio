@@ -18,12 +18,14 @@ const store = createStore(reducers)
 
 const App = () => (
   <Provider store={store}>
-    <Toggle>
-      <SocketConnect url="http://localhost:3000/things">
-        <h3>The App</h3>
-        <Echo />
-      </SocketConnect>
-    </Toggle>
+    <div>
+      <h3>The App</h3>
+      <Toggle>
+        <SocketConnect url="http://localhost:3000/things">
+          <Echo />
+        </SocketConnect>
+      </Toggle>
+    </div>
   </Provider>
 )
 

@@ -11,7 +11,9 @@ export default React.createClass({
     return (
       <div>
         <button onClick={ toggle }>{ this.state.show ? 'Hide' : 'Show' }</button>
-        { inner }
+        <div>
+          { inner }
+        </div>
       </div>
     )
   }

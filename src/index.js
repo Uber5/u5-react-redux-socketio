@@ -4,28 +4,19 @@ import io from 'socket.io-client'
 const SocketConnect = React.createClass({
   getInitialState: function() {
     const raw = io(this.props.url)
-    this.raw = raw
     const socket = new Promise((resolve, reject) => {
       raw.on('connect', () => resolve(raw))
     })
     return { socket }
   },
-  componentWillMount: function() {
-  },
   componentWillUnmount: function() {
-    // TODO: does this close the socket?
-    console.log('closing now?')
-    this.raw.close()
+    this.state.socket.then(socket => socket.close())
   },
   getChildContext: function() {
     return { socket: this.state.socket }
   },
   render: function() {
-    return React.createElement(
-      'span',
-      null,
-      this.props.children
-    )
+    return this.props.children
   }
 })
 
