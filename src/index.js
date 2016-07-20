@@ -38,7 +38,6 @@ SocketConnect.childContextTypes = {
 
 const SocketWrapper = React.createClass({
   componentWillMount: function() {
-    console.log('SocketWrapper will mount', this.props.map, this.context, this.context.store)
     const store = this.context.store
     const socket = this.context.socket
     const eventMap = this.props.map(store.dispatch)
@@ -58,9 +57,6 @@ SocketWrapper.contextTypes = {
 
 const onSocket = mapDispatchToEvents => {
   return component => {
-    // when we get an event on context.socket, then call mapDispatchToEvents[eventName]
-    //console.log('onSocket', mapDispatchToEvents, component)
-    // return component
     return () => (<SocketWrapper component={ component } map={ mapDispatchToEvents } />)
   }
 }

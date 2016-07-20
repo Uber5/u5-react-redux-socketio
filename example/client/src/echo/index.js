@@ -3,12 +3,10 @@ import { connect } from 'react-redux'
 import { onSocket } from '../../../../src'
 
 const Echo = ({ message }) => {
-  console.log('Echo, message', message)
   return (
     <p1>Message: { message }</p1>
   )
 }
-// export default Echo
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -16,14 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    someProp: f => f
-  }
-}
-
-const ConnectedEcho = connect(mapStateToProps, mapDispatchToProps)(Echo)
-// export default ConnectedEcho
+const ConnectedEcho = connect(mapStateToProps)(Echo)
 
 export default onSocket(dispatch => ({
   now: data => dispatch({ type: 'newSocketMessage', data: data.now })
