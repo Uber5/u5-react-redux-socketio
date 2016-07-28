@@ -9,7 +9,7 @@ const io = SocketIO(server)
 
 const things = io.of('/things')
 things.on('connection', socket => {
-  console.log('connected to things')
+  console.log('connected to things', socket.id)
   socket.on('disconnect', () => console.log('somebody disconnected', socket.id))
 })
 
